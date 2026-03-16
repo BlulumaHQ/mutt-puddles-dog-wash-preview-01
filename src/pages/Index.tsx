@@ -1,16 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import PageLayout from "@/components/layout/PageLayout";
+import Hero from "@/components/sections/Hero";
+import TrustBar from "@/components/sections/TrustBar";
+import ServiceCards from "@/components/sections/ServiceCards";
+import Testimonial from "@/components/sections/Testimonial";
+import FacilityGrid from "@/components/sections/FacilityGrid";
+import ContactSection from "@/components/sections/ContactSection";
+import CtaBanner from "@/components/sections/CtaBanner";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <PageLayout>
+      <Helmet>
+        <title>Home | Mutt Puddles Dog Wash LLC</title>
+        <meta name="description" content="Quality pet grooming and upscale self-service dog wash facility in Tacoma, WA. Professional tools, clean tubs, and expert staff since 2007." />
+      </Helmet>
+      <Hero />
+      <TrustBar />
+      <ServiceCards />
+      <Testimonial />
+      <FacilityGrid />
+      <CtaBanner />
+      <ContactSection />
+    </PageLayout>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
