@@ -25,7 +25,7 @@ const Hero = () => {
             key={current}
             src={slides[current]}
             alt="Professional dog grooming studio"
-            className="absolute inset-0 w-full h-full object-cover object-right"
+            className="absolute inset-0 w-full h-full object-cover object-[82%_center] md:object-[90%_center]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
