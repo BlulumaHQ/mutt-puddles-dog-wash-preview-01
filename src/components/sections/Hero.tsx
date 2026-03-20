@@ -6,7 +6,6 @@ import heroBg from "@/assets/hero-bg.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
 
 const slides = [heroBg, heroBg2];
-const slideFocus = ["96% center", "99% center"];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -26,8 +25,7 @@ const Hero = () => {
             key={current}
             src={slides[current]}
             alt="Professional dog grooming studio"
-            className="absolute inset-0 h-full w-full object-cover scale-[1.25] md:scale-110"
-            style={{ objectPosition: slideFocus[current] }}
+            className="absolute inset-0 h-full w-full object-cover object-[88%_center] md:object-[94%_center]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
