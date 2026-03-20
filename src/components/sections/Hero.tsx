@@ -1,18 +1,52 @@
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+
+const slides = [heroBg, heroBg2];
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Professional dog grooming studio"
-          className="w-full h-full object-cover"
-        />
+        <AnimatePresence mode="popLayout">
+          <motion.img
+            key={current}
+            src={slides[current]}
+            alt="Professional dog grooming studio"
+            className="absolute inset-0 w-full h-full object-cover object-right"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/30" />
+      </div>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              i === current ? "bg-primary w-8" : "bg-background/50"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
 
       <div className="relative z-10 section-pad w-full">
