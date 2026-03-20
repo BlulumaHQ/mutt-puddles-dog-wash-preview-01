@@ -25,7 +25,7 @@ const Hero = () => {
             key={current}
             src={slides[current]}
             alt="Professional dog grooming studio"
-            className="absolute inset-0 w-full h-full object-cover object-right"
+            className="absolute inset-0 w-full h-full object-cover object-[82%_center] md:object-[90%_center]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -36,7 +36,7 @@ const Hero = () => {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-8 right-8 z-20 flex gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
